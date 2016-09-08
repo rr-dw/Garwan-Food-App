@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		338E9D421D815E6D00EE2CA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D411D815E6D00EE2CA4 /* main.m */; };
+		338E9D451D815E6D00EE2CA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D441D815E6D00EE2CA4 /* AppDelegate.m */; };
+		338E9D481D815E6D00EE2CA4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D471D815E6D00EE2CA4 /* ViewController.m */; };
+		338E9D4B1D815E6D00EE2CA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 338E9D491D815E6D00EE2CA4 /* Main.storyboard */; };
+		338E9D4D1D815E6D00EE2CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 338E9D4C1D815E6D00EE2CA4 /* Assets.xcassets */; };
+		338E9D501D815E6D00EE2CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 338E9D4E1D815E6D00EE2CA4 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		338E9D3D1D815E6C00EE2CA4 /* Garwan - Food App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garwan - Food App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		338E9D411D815E6D00EE2CA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		338E9D431D815E6D00EE2CA4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		338E9D441D815E6D00EE2CA4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		338E9D461D815E6D00EE2CA4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		338E9D471D815E6D00EE2CA4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		338E9D4A1D815E6D00EE2CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		338E9D4C1D815E6D00EE2CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		338E9D4F1D815E6D00EE2CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		338E9D511D815E6D00EE2CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		338E9D3A1D815E6C00EE2CA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		338E9D341D815E6C00EE2CA4 = {
+			isa = PBXGroup;
+			children = (
+				338E9D3F1D815E6D00EE2CA4 /* Garwan - Food App */,
+				338E9D3E1D815E6C00EE2CA4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		338E9D3E1D815E6C00EE2CA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				338E9D3D1D815E6C00EE2CA4 /* Garwan - Food App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		338E9D3F1D815E6D00EE2CA4 /* Garwan - Food App */ = {
+			isa = PBXGroup;
+			children = (
+				338E9D431D815E6D00EE2CA4 /* AppDelegate.h */,
+				338E9D441D815E6D00EE2CA4 /* AppDelegate.m */,
+				338E9D461D815E6D00EE2CA4 /* ViewController.h */,
+				338E9D471D815E6D00EE2CA4 /* ViewController.m */,
+				338E9D491D815E6D00EE2CA4 /* Main.storyboard */,
+				338E9D4C1D815E6D00EE2CA4 /* Assets.xcassets */,
+				338E9D4E1D815E6D00EE2CA4 /* LaunchScreen.storyboard */,
+				338E9D511D815E6D00EE2CA4 /* Info.plist */,
+				338E9D401D815E6D00EE2CA4 /* Supporting Files */,
+			);
+			path = "Garwan - Food App";
+			sourceTree = "<group>";
+		};
+		338E9D401D815E6D00EE2CA4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				338E9D411D815E6D00EE2CA4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		338E9D3C1D815E6C00EE2CA4 /* Garwan - Food App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 338E9D541D815E6D00EE2CA4 /* Build configuration list for PBXNativeTarget "Garwan - Food App" */;
+			buildPhases = (
+				338E9D391D815E6C00EE2CA4 /* Sources */,
+				338E9D3A1D815E6C00EE2CA4 /* Frameworks */,
+				338E9D3B1D815E6C00EE2CA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Garwan - Food App";
+			productName = "Garwan - Food App";
+			productReference = 338E9D3D1D815E6C00EE2CA4 /* Garwan - Food App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		338E9D351D815E6C00EE2CA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Roman Roba";
+				TargetAttributes = {
+					338E9D3C1D815E6C00EE2CA4 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = J35L44TTLD;
+					};
+				};
+			};
+			buildConfigurationList = 338E9D381D815E6C00EE2CA4 /* Build configuration list for PBXProject "Garwan - Food App" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 338E9D341D815E6C00EE2CA4;
+			productRefGroup = 338E9D3E1D815E6C00EE2CA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				338E9D3C1D815E6C00EE2CA4 /* Garwan - Food App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		338E9D3B1D815E6C00EE2CA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				338E9D501D815E6D00EE2CA4 /* LaunchScreen.storyboard in Resources */,
+				338E9D4D1D815E6D00EE2CA4 /* Assets.xcassets in Resources */,
+				338E9D4B1D815E6D00EE2CA4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		338E9D391D815E6C00EE2CA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				338E9D481D815E6D00EE2CA4 /* ViewController.m in Sources */,
+				338E9D451D815E6D00EE2CA4 /* AppDelegate.m in Sources */,
+				338E9D421D815E6D00EE2CA4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		338E9D491D815E6D00EE2CA4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				338E9D4A1D815E6D00EE2CA4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		338E9D4E1D815E6D00EE2CA4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				338E9D4F1D815E6D00EE2CA4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		338E9D521D815E6D00EE2CA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		338E9D531D815E6D00EE2CA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		338E9D551D815E6D00EE2CA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Garwan - Food App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RR.Garwan---Food-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		338E9D561D815E6D00EE2CA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Garwan - Food App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RR.Garwan---Food-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		338E9D381D815E6C00EE2CA4 /* Build configuration list for PBXProject "Garwan - Food App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				338E9D521D815E6D00EE2CA4 /* Debug */,
+				338E9D531D815E6D00EE2CA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		338E9D541D815E6D00EE2CA4 /* Build configuration list for PBXNativeTarget "Garwan - Food App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				338E9D551D815E6D00EE2CA4 /* Debug */,
+				338E9D561D815E6D00EE2CA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 338E9D351D815E6C00EE2CA4 /* Project object */;
+}
