@@ -10,6 +10,7 @@
 
 @interface FoodExpandableTableViewController : UITableViewController
 {
+    BOOL sameRow;
     NSMutableArray *categories;
     NSIndexPath *selectedIndex;
 }

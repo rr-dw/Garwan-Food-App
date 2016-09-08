@@ -8,6 +8,10 @@
 
 #import "FoodExpandableTableViewController.h"
 #import "FoodExpandableTableViewCell.h"
+#import "DataRetriever.h"
+#import "FoodCategory.h"
+
+#define ROW_HEIGHT 44
 
 @implementation FoodExpandableTableViewController
 
@@ -21,6 +25,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableDataReceived:) name:DATA_RETRIEVED object:nil];
+    
     categories = [[NSMutableArray alloc] init];
 }
 
@@ -32,6 +38,12 @@
 
 #pragma mark - Table view data source
 
+- (void)tableDataReceived:(NSNotification *)notification
+{
+    categories = [notification.userInfo valueForKey:DATA_RETRIEVED];
+    [self.tableView reloadData];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -39,33 +51,40 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;//categories.count;
+    return categories.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FoodExpandableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodExpandableViewCell" forIndexPath:indexPath];
-    [cell.CategoryLabel setText:@"qwerty"];
+    
+    FoodCategory *fc = categories[indexPath.row];
+    [cell.CategoryLabel setText:fc.name];
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(selectedIndex && indexPath.row == selectedIndex.row) return 100;
-    else return 44;
+    FoodCategory *fc = categories[indexPath.row];
+    
+    if(selectedIndex && indexPath.row == selectedIndex.row && !sameRow) return ROW_HEIGHT + ROW_HEIGHT * fc.meals.count - 14; // 14 Magic pixels
+    else return ROW_HEIGHT;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSMutableArray *arr = [[NSMutableArray alloc] initWithObjects:indexPath, selectedIndex ? nil : nil, nil];
+    if (selectedIndex && indexPath.row == selectedIndex.row && !sameRow) sameRow = YES;
+    else sameRow = NO;
+    
+    NSMutableArray *indexes = [[NSMutableArray alloc] initWithObjects:indexPath, selectedIndex ? selectedIndex : nil, nil];
     selectedIndex = indexPath;
     
     [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
     
-    //[self.tableView reloadData];
+//    [self performSegueWithIdentifier:@"TableToFoodAddonsSegue" sender:self];
 }
 
 /*
@@ -102,14 +121,21 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//}
+
+#pragma mark - 
+#pragma mark Deallock
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-*/
 
 @end

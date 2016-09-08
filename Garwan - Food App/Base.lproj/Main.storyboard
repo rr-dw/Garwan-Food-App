@@ -70,22 +70,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hidden Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiR-9m-Tc1">
-                                            <rect key="frame" x="8" y="70" width="102" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHg-dR-aXG">
                                             <rect key="frame" x="8" y="11" width="584" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cld-Bj-tSM">
+                                            <rect key="frame" x="8" y="32" width="592" height="67"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <prototypes>
+                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="I1D-VE-fCx" customClass="FoodDetailTableViewCell">
+                                                    <rect key="frame" x="0.0" y="28" width="592" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I1D-VE-fCx" id="P4G-KD-1SR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="592" height="43"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </tableViewCellContentView>
+                                                </tableViewCell>
+                                            </prototypes>
+                                        </tableView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="cld-Bj-tSM" secondAttribute="trailing" constant="-8" id="8GG-xU-btY"/>
                                         <constraint firstItem="LHg-dR-aXG" firstAttribute="top" secondItem="CeJ-CV-7uw" secondAttribute="topMargin" constant="3" id="9Z9-Z5-VVc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="cld-Bj-tSM" secondAttribute="bottom" constant="-8" id="BQM-9D-xA0"/>
+                                        <constraint firstItem="cld-Bj-tSM" firstAttribute="leading" secondItem="CeJ-CV-7uw" secondAttribute="leadingMargin" id="asa-4D-D5i"/>
                                         <constraint firstItem="LHg-dR-aXG" firstAttribute="trailing" secondItem="CeJ-CV-7uw" secondAttribute="trailingMargin" id="ejL-vx-q9d"/>
+                                        <constraint firstItem="cld-Bj-tSM" firstAttribute="top" secondItem="LHg-dR-aXG" secondAttribute="bottom" id="hir-EZ-Eqt"/>
                                         <constraint firstItem="LHg-dR-aXG" firstAttribute="leading" secondItem="CeJ-CV-7uw" secondAttribute="leadingMargin" id="znf-Ri-2UQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
