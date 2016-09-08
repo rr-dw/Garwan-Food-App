@@ -47,13 +47,19 @@
     
     [meals enumerateObjectsUsingBlock:^(NSDictionary *meal, NSUInteger idx, BOOL * _Nonnull stop)
     {
-        Food *food = [[Food alloc] initWithName:[meal valueForKey:@"name"]
-                                          price:[[meal valueForKey:@"servingSize"] valueForKey:@"price"]
-                                           size:[[meal valueForKey:@"servingSize"] valueForKey:@"size"]
-                                         FoodId:[meal valueForKey:@"id"]
-                                   andHasAddons:((NSArray*)[meal valueForKey:@"addOnIds"]).count > 0 ? YES : NO ];
-        
-        [results addObject:food];
+        @autoreleasepool
+        {            
+            NSNumber *n = [[meal valueForKey:@"servingSize"] valueForKey:@"price"];
+            NSDecimalNumber *dbl = [NSDecimalNumber decimalNumberWithDecimal:[n decimalValue]];
+            
+            Food *food = [[Food alloc] initWithName:[meal valueForKey:@"name"]
+                                              price:[dbl stringValue]
+                                               size:[[meal valueForKey:@"servingSize"] valueForKey:@"size"]
+                                             FoodId:[meal valueForKey:@"id"]
+                                       andHasAddons:((NSArray*)[meal valueForKey:@"addOnIds"]).count > 0 ? YES : NO ];
+            
+            [results addObject:food];
+        }
     }];
     
     return results;

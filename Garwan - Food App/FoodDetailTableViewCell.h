@@ -10,4 +10,8 @@
 
 @interface FoodDetailTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *mealLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+
 @end

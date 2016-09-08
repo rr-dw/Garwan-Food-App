@@ -10,6 +10,7 @@
 
 @interface FoodExpandableTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *CategoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UITableView *detailTableView;
 
 @end

@@ -8,8 +8,10 @@
 
 #import "FoodExpandableTableViewController.h"
 #import "FoodExpandableTableViewCell.h"
+#import "FoodDetailTableViewCell.h"
 #import "DataRetriever.h"
 #import "FoodCategory.h"
+#import "Food.h"
 
 #define ROW_HEIGHT 44
 
@@ -36,13 +38,72 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (void)tableDataReceived:(NSNotification *)notification
 {
     categories = [notification.userInfo valueForKey:DATA_RETRIEVED];
     [self.tableView reloadData];
 }
+
+#pragma mark -
+#pragma mark Expandable Table View
+
+- (NSInteger)numberOfExpandableSectionsInTableView
+{
+    return categories.count;
+}
+
+- (UITableViewCell*)cellForExpandable:(UITableView *)tableView RowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FoodExpandableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodExpandableViewCell" forIndexPath:indexPath];
+    
+    FoodCategory *fc = categories[indexPath.row];
+    [cell.categoryLabel setText:fc.name];
+    
+    return cell;
+}
+
+- (CGFloat)heightForExpandableRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FoodCategory *fc = categories[indexPath.row];
+    
+    if(selectedIndex && indexPath.row == selectedIndex.row && !sameRow) return ROW_HEIGHT + ROW_HEIGHT * fc.meals.count;
+    else return ROW_HEIGHT;
+}
+
+#pragma mark -
+#pragma mark Detail Table View
+
+- (NSInteger)numberOfDetailSectionsInTableView
+{
+    if (selectedIndex && !sameRow)
+    {
+        FoodCategory *fc = categories[selectedIndex.row];
+        return fc.meals.count;
+    }
+    return 0;
+}
+
+- (UITableViewCell*)cellForDetail:(UITableView *)tableView RowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FoodDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodDetailTableViewCell" forIndexPath:indexPath];
+    
+    FoodCategory *fc = categories[selectedIndex.row];
+    Food *food = fc.meals[indexPath.row];
+    
+    [cell.mealLabel setText:food.name];
+    [cell.sizeLabel setText:food.size];
+    [cell.priceLabel setText:[NSString stringWithFormat:@"%@€", food.price]];
+    
+    return cell;
+}
+
+- (CGFloat)heightForDetailRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return ROW_HEIGHT;
+}
+
+#pragma mark -
+#pragma mark Table View Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -51,39 +112,52 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return categories.count;
+    if ([tableView.restorationIdentifier isEqualToString:@"FoodExpandable"])
+    {
+        return [self numberOfExpandableSectionsInTableView];
+    }
+    else return [self numberOfDetailSectionsInTableView];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FoodExpandableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodExpandableViewCell" forIndexPath:indexPath];
-    
-    FoodCategory *fc = categories[indexPath.row];
-    [cell.CategoryLabel setText:fc.name];
-    
-    return cell;
+    if ([tableView.restorationIdentifier isEqualToString:@"FoodExpandable"])
+    {
+        return [self cellForExpandable:tableView RowAtIndexPath:indexPath];
+    }
+    else return [self cellForDetail:tableView RowAtIndexPath:indexPath];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FoodCategory *fc = categories[indexPath.row];
-    
-    if(selectedIndex && indexPath.row == selectedIndex.row && !sameRow) return ROW_HEIGHT + ROW_HEIGHT * fc.meals.count - 14; // 14 Magic pixels
-    else return ROW_HEIGHT;
+    if ([tableView.restorationIdentifier isEqualToString:@"FoodExpandable"])
+    {
+        return [self heightForExpandableRowAtIndexPath:indexPath];
+    }
+    else return [self heightForDetailRowAtIndexPath:indexPath];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (selectedIndex && indexPath.row == selectedIndex.row && !sameRow) sameRow = YES;
-    else sameRow = NO;
+    if ([tableView.restorationIdentifier isEqualToString:@"FoodExpandable"])
+    {
+        if (selectedIndex && indexPath.row == selectedIndex.row && !sameRow) sameRow = YES;
+        else sameRow = NO;
+        
+        NSMutableArray *indexes = [[NSMutableArray alloc] initWithObjects:indexPath, selectedIndex ? selectedIndex : nil, nil];
+        selectedIndex = indexPath;
+        
+        [tableView beginUpdates];
+        [tableView reloadRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
+        [tableView endUpdates];
     
-    NSMutableArray *indexes = [[NSMutableArray alloc] initWithObjects:indexPath, selectedIndex ? selectedIndex : nil, nil];
-    selectedIndex = indexPath;
-    
-    [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];
-    
+        FoodExpandableTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        [cell.detailTableView reloadData];
+    }
+    else
+    {
+//        [tableView reloadData];
+    }
 //    [self performSegueWithIdentifier:@"TableToFoodAddonsSegue" sender:self];
 }
 

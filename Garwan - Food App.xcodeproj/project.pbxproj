@@ -19,7 +19,6 @@
 		338E9D671D81BF1000EE2CA4 /* DataRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D661D81BF1000EE2CA4 /* DataRetriever.m */; };
 		338E9D6C1D81D49600EE2CA4 /* FoodCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D6B1D81D49600EE2CA4 /* FoodCategory.m */; };
 		338E9D6F1D81EE8800EE2CA4 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D6E1D81EE8800EE2CA4 /* Food.m */; };
-		338E9D721D81FCB600EE2CA4 /* FoodDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D711D81FCB600EE2CA4 /* FoodDetailTableViewController.m */; };
 		338E9D751D81FCDE00EE2CA4 /* FoodDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D741D81FCDE00EE2CA4 /* FoodDetailTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +45,6 @@
 		338E9D6B1D81D49600EE2CA4 /* FoodCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCategory.m; sourceTree = "<group>"; };
 		338E9D6D1D81EE8800EE2CA4 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
 		338E9D6E1D81EE8800EE2CA4 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
-		338E9D701D81FCB600EE2CA4 /* FoodDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetailTableViewController.h; sourceTree = "<group>"; };
-		338E9D711D81FCB600EE2CA4 /* FoodDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetailTableViewController.m; sourceTree = "<group>"; };
 		338E9D731D81FCDD00EE2CA4 /* FoodDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetailTableViewCell.h; sourceTree = "<group>"; };
 		338E9D741D81FCDE00EE2CA4 /* FoodDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetailTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,8 +108,6 @@
 				338E9D5B1D817F1900EE2CA4 /* FoodCategoriesViewController.m */,
 				338E9D731D81FCDD00EE2CA4 /* FoodDetailTableViewCell.h */,
 				338E9D741D81FCDE00EE2CA4 /* FoodDetailTableViewCell.m */,
-				338E9D701D81FCB600EE2CA4 /* FoodDetailTableViewController.h */,
-				338E9D711D81FCB600EE2CA4 /* FoodDetailTableViewController.m */,
 				338E9D601D81950000EE2CA4 /* FoodExpandableTableViewCell.h */,
 				338E9D611D81950000EE2CA4 /* FoodExpandableTableViewCell.m */,
 				338E9D5D1D818F2900EE2CA4 /* FoodExpandableTableViewController.h */,
@@ -221,7 +216,6 @@
 				338E9D591D817E7700EE2CA4 /* FoodAddonsViewController.m in Sources */,
 				338E9D451D815E6D00EE2CA4 /* AppDelegate.m in Sources */,
 				338E9D5C1D817F1900EE2CA4 /* FoodCategoriesViewController.m in Sources */,
-				338E9D721D81FCB600EE2CA4 /* FoodDetailTableViewController.m in Sources */,
 				338E9D421D815E6D00EE2CA4 /* main.m in Sources */,
 				338E9D671D81BF1000EE2CA4 /* DataRetriever.m in Sources */,
 				338E9D6C1D81D49600EE2CA4 /* FoodCategory.m in Sources */,
