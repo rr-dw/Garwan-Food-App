@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		338E9D421D815E6D00EE2CA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D411D815E6D00EE2CA4 /* main.m */; };
 		338E9D451D815E6D00EE2CA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D441D815E6D00EE2CA4 /* AppDelegate.m */; };
-		338E9D481D815E6D00EE2CA4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D471D815E6D00EE2CA4 /* ViewController.m */; };
 		338E9D4B1D815E6D00EE2CA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 338E9D491D815E6D00EE2CA4 /* Main.storyboard */; };
 		338E9D4D1D815E6D00EE2CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 338E9D4C1D815E6D00EE2CA4 /* Assets.xcassets */; };
 		338E9D501D815E6D00EE2CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 338E9D4E1D815E6D00EE2CA4 /* LaunchScreen.storyboard */; };
+		338E9D591D817E7700EE2CA4 /* FoodAddonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D581D817E7700EE2CA4 /* FoodAddonsViewController.m */; };
+		338E9D5C1D817F1900EE2CA4 /* FoodCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D5B1D817F1900EE2CA4 /* FoodCategoriesViewController.m */; };
+		338E9D5F1D818F2900EE2CA4 /* FoodExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D5E1D818F2900EE2CA4 /* FoodExpandableTableViewController.m */; };
+		338E9D621D81950000EE2CA4 /* FoodExpandableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E9D611D81950000EE2CA4 /* FoodExpandableTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,18 @@
 		338E9D411D815E6D00EE2CA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		338E9D431D815E6D00EE2CA4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		338E9D441D815E6D00EE2CA4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		338E9D461D815E6D00EE2CA4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		338E9D471D815E6D00EE2CA4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		338E9D4A1D815E6D00EE2CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		338E9D4C1D815E6D00EE2CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		338E9D4F1D815E6D00EE2CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		338E9D511D815E6D00EE2CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		338E9D571D817E7700EE2CA4 /* FoodAddonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddonsViewController.h; sourceTree = "<group>"; };
+		338E9D581D817E7700EE2CA4 /* FoodAddonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddonsViewController.m; sourceTree = "<group>"; };
+		338E9D5A1D817F1900EE2CA4 /* FoodCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCategoriesViewController.h; sourceTree = "<group>"; };
+		338E9D5B1D817F1900EE2CA4 /* FoodCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCategoriesViewController.m; sourceTree = "<group>"; };
+		338E9D5D1D818F2900EE2CA4 /* FoodExpandableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodExpandableTableViewController.h; sourceTree = "<group>"; };
+		338E9D5E1D818F2900EE2CA4 /* FoodExpandableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodExpandableTableViewController.m; sourceTree = "<group>"; };
+		338E9D601D81950000EE2CA4 /* FoodExpandableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodExpandableTableViewCell.h; sourceTree = "<group>"; };
+		338E9D611D81950000EE2CA4 /* FoodExpandableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodExpandableTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +69,14 @@
 			children = (
 				338E9D431D815E6D00EE2CA4 /* AppDelegate.h */,
 				338E9D441D815E6D00EE2CA4 /* AppDelegate.m */,
-				338E9D461D815E6D00EE2CA4 /* ViewController.h */,
-				338E9D471D815E6D00EE2CA4 /* ViewController.m */,
+				338E9D571D817E7700EE2CA4 /* FoodAddonsViewController.h */,
+				338E9D581D817E7700EE2CA4 /* FoodAddonsViewController.m */,
+				338E9D5A1D817F1900EE2CA4 /* FoodCategoriesViewController.h */,
+				338E9D5B1D817F1900EE2CA4 /* FoodCategoriesViewController.m */,
+				338E9D601D81950000EE2CA4 /* FoodExpandableTableViewCell.h */,
+				338E9D611D81950000EE2CA4 /* FoodExpandableTableViewCell.m */,
+				338E9D5D1D818F2900EE2CA4 /* FoodExpandableTableViewController.h */,
+				338E9D5E1D818F2900EE2CA4 /* FoodExpandableTableViewController.m */,
 				338E9D491D815E6D00EE2CA4 /* Main.storyboard */,
 				338E9D4C1D815E6D00EE2CA4 /* Assets.xcassets */,
 				338E9D4E1D815E6D00EE2CA4 /* LaunchScreen.storyboard */,
@@ -150,8 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				338E9D481D815E6D00EE2CA4 /* ViewController.m in Sources */,
+				338E9D5F1D818F2900EE2CA4 /* FoodExpandableTableViewController.m in Sources */,
+				338E9D621D81950000EE2CA4 /* FoodExpandableTableViewCell.m in Sources */,
+				338E9D591D817E7700EE2CA4 /* FoodAddonsViewController.m in Sources */,
 				338E9D451D815E6D00EE2CA4 /* AppDelegate.m in Sources */,
+				338E9D5C1D817F1900EE2CA4 /* FoodCategoriesViewController.m in Sources */,
 				338E9D421D815E6D00EE2CA4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +284,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Garwan - Food App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RR.Garwan---Food-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -278,6 +297,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Garwan - Food App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RR.Garwan---Food-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
