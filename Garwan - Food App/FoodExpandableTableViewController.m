@@ -50,15 +50,22 @@
     return cell;
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if(indexPath.row == selectedIndex) return 100;
-//    else return 44;
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(selectedIndex && indexPath.row == selectedIndex.row) return 100;
+    else return 44;
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    selectedIndex = indexPath.row;
+    NSMutableArray *arr = [[NSMutableArray alloc] initWithObjects:indexPath, selectedIndex ? nil : nil, nil];
+    selectedIndex = indexPath;
+    
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
+    
+    //[self.tableView reloadData];
 }
 
 /*

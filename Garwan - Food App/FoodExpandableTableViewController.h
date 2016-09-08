@@ -11,7 +11,7 @@
 @interface FoodExpandableTableViewController : UITableViewController
 {
     NSMutableArray *categories;
-    int selectedIndex;
+    NSIndexPath *selectedIndex;
 }
 
 @end
