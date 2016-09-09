@@ -7,7 +7,6 @@
 //
 
 #import "FoodCategoriesViewController.h"
-#import "FoodAddonsViewController.h"
 #import "FoodExpandableTableViewController.h"
 
 @interface FoodCategoriesViewController ()
