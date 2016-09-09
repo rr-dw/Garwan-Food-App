@@ -14,6 +14,11 @@
 #pragma mark -
 #pragma mark Retrieving Data from Internet
 
+- (NSArray*) getAddonData
+{
+    return @[addonsAndFood[self.addonDataCategory]];
+}
+
 - (void)loadData
 {
     dispatch_group_t gcdGroup = dispatch_group_create();
@@ -23,13 +28,21 @@
         [self loadMealCategory];
     });
     
+    __block NSData *cat;
     dispatch_group_async(gcdGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
     ^{
-        [self loadAddonCategory];
+        cat = [self loadAddonCategory];
+    });
+    
+    __block NSData *add;
+    dispatch_group_async(gcdGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+    ^{
+        add = [self loadAddons];
     });
     
     dispatch_group_notify(gcdGroup, dispatch_get_main_queue(),
     ^{
+        addonsAndFood = [FoodCategory addonsCategoriesFromJsonData:cat withAddonsFronJsonData:add];
         [[NSNotificationCenter defaultCenter] postNotificationName:DATA_RETRIEVED object:nil userInfo:[NSDictionary dictionaryWithObject:categoriesAndFood forKey:DATA_RETRIEVED]];
     });
 }
@@ -62,7 +75,7 @@
     }
 }
 
-- (void)loadAddonCategory
+- (NSData*)loadAddonCategory
 {
     NSURL *url = [NSURL URLWithString:@"https://papagaj-breweria.herokuapp.com/api/v1/menu/54ca39f401731406200082df/addon/category"];
     
@@ -76,17 +89,47 @@
     
     if (error)
     {
-        NSLog(@"Error to load MealCategories: %@", error);
-        return;
+        NSLog(@"Error to load Addon Categories: %@", error);
+        return nil;
     }
     
     if (resp.statusCode == 200)
     {
-        addonsAndFood = [FoodCategory addonsCategoriesFromJsonData:respData];
+        return respData;
     }
     else
     {
-        NSLog(@"Failed to load Meal Caregories");
+        NSLog(@"Failed to load Addon Caregories");
+        return nil;
+    }
+}
+
+- (NSData*)loadAddons
+{
+    NSURL *url = [NSURL URLWithString:@"https://papagaj-breweria.herokuapp.com/api/v1/menu/54ca39f401731406200082df/addon"];
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    [self setAutorizationIntoHeader:request];
+    
+    NSHTTPURLResponse* resp = nil;
+    NSError* error = nil;
+    NSData* respData = [NSURLConnection sendSynchronousRequest:request returningResponse:&resp error:&error];
+    
+    if (error)
+    {
+        NSLog(@"Error to load Addons: %@", error);
+        return nil;
+    }
+    
+    if (resp.statusCode == 200)
+    {
+        return respData;
+    }
+    else
+    {
+        NSLog(@"Failed to load Addons");
+        return nil;
     }
 }
 

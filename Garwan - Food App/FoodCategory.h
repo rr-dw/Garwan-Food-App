@@ -14,6 +14,6 @@
 @property (readonly) NSArray *meals;
 
 + (NSArray*)mealsCategoriesFromJsonData:(NSData*)data;
-+ (NSArray*)addonsCategoriesFromJsonData:(NSData*)data;
++ (NSArray*)addonsCategoriesFromJsonData:(NSData*)cat withAddonsFronJsonData:(NSData*)add;
 
 @end

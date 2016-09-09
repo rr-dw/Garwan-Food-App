@@ -13,8 +13,9 @@
 @property (readonly) NSString *name;
 @property (readonly) NSString *price;
 @property (readonly) NSString *size;
+@property (readonly) NSString *foodId;
 @property (readonly) NSArray *addons;
 
-- (Food*)initWithName:(NSString*)name price:(NSString*)price size:(NSString*)size andAddons:(NSArray*)addons;
+- (Food*)initWithName:(NSString*)name price:(NSString*)price size:(NSString*)size FoodId:(NSString*)foodId andAddons:(NSArray*)hasAddons;
 
 @end

@@ -43,7 +43,8 @@ static BOOL master = YES;
 {
     if (!amIMaster)
     {
-        //get data
+        tablesData = [[DataRetriever sharedInstance] getAddonData];
+        [self.tableView reloadData];
     }
 }
 
@@ -238,6 +239,19 @@ static BOOL master = YES;
         
         addonsTable = [segue destinationViewController];
         addonsTable.navigationItem.title = cell.mealLabel.text;
+        
+        switch (selectedIndex.row)
+        {
+            case 0:
+                [DataRetriever sharedInstance].addonDataCategory = 0;
+                break;
+            case 2: case 4:
+                [DataRetriever sharedInstance].addonDataCategory = 1;
+                break;
+            default:
+                [DataRetriever sharedInstance].addonDataCategory = 2;
+                break;
+        }
     }
 }
 

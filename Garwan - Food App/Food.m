@@ -10,13 +10,14 @@
 
 @implementation Food
 
-- (Food*)initWithName:(NSString*)name price:(NSString*)price size:(NSString*)size andAddons:(NSArray*)addons
+- (Food*)initWithName:(NSString*)name price:(NSString*)price size:(NSString*)size FoodId:(NSString*)foodId andAddons:(NSArray*)addons
 {
     self = [super init];
     
     _name = name;
     _price = price;
     _size = size;
+    _foodId = foodId;
     _addons = addons;
     
     return self;

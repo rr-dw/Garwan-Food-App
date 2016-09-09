@@ -38,6 +38,7 @@
              Food *food = [[Food alloc] initWithName:[meal valueForKey:@"name"]
                                                price:[dbl stringValue]
                                                 size:[[meal valueForKey:@"servingSize"] valueForKey:@"size"]
+                                              FoodId:nil
                                            andAddons:[meal valueForKey:@"addOnIds"]];
              
              [results addObject:food];
@@ -84,7 +85,34 @@
 #pragma mark -
 #pragma mark Addon Categories + Food
 
-+ (NSArray*)addonsFromDictionary:(NSDictionary*)addonCategories
++ (NSArray*)addonsForCategory:(NSString*)name FromArray:(NSArray*)addons
+{
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    
+    [addons enumerateObjectsUsingBlock:^(NSDictionary *addon, NSUInteger idx, BOOL * _Nonnull stop)
+     {
+         @autoreleasepool
+         {
+             if ([name isEqualToString:[[addon valueForKey:@"category"] valueForKey:@"name"]])
+             {
+                 NSNumber *n = [[addon valueForKey:@"servingSize"] valueForKey:@"price"];
+                 NSDecimalNumber *dbl = [NSDecimalNumber decimalNumberWithDecimal:[n decimalValue]];
+                 
+                 Food *food = [[Food alloc] initWithName:[addon valueForKey:@"name"]
+                                                   price:[dbl stringValue]
+                                                    size:[[addon valueForKey:@"servingSize"] valueForKey:@"size"]
+                                                  FoodId:[addon valueForKey:@"id"]
+                                               andAddons:[addon valueForKey:@"addOnIds"]];
+                 
+                 [results addObject:food];
+             }
+         }
+     }];
+    
+    return results;
+}
+
++ (NSArray*)addonsFromDictionary:(NSDictionary*)addonCategories and:(NSDictionary*)addons
 {
     NSMutableArray *results = [[NSMutableArray alloc] init];
     
@@ -95,7 +123,7 @@
          @autoreleasepool
          {
              FoodCategory *fc = [[FoodCategory alloc] initWithName:[category valueForKey:@"name"]
-                                                          andMeals:nil];
+                                                          andMeals:[self addonsForCategory:[category valueForKey:@"name"] FromArray:[addons valueForKey:@"addOns"]]];
              
              [results addObject:fc];
          }
@@ -104,18 +132,13 @@
     return results;
 }
 
-+ (NSArray*)addonsCategoriesFromJsonData:(NSData*)data
++ (NSArray*)addonsCategoriesFromJsonData:(NSData*)cat withAddonsFronJsonData:(NSData*)add
 {
     NSError* error = nil;
-    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    NSDictionary* catDict = [NSJSONSerialization JSONObjectWithData:cat options:0 error:nil];
+    NSDictionary* addDict = [NSJSONSerialization JSONObjectWithData:add options:0 error:nil];
     
-    if (error)
-    {
-        //TODO: handle error
-        return nil;
-    }
-    
-    return [self addonsFromDictionary:dict];
+    return [self addonsFromDictionary:catDict and:addDict];
 }
 
 @end

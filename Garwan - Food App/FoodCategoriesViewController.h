@@ -11,8 +11,5 @@
 @class FoodExpandableTableViewController;
 
 @interface FoodCategoriesViewController : UIViewController
-{
-    FoodExpandableTableViewController *foodTable;
-}
 
 @end

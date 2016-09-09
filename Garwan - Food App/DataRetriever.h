@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class FoodCategory;
+
 #define DATA_RETRIEVED @"DATA_RETRIEVED"
 
 @interface DataRetriever : NSObject
@@ -16,7 +18,10 @@
     NSArray *addonsAndFood;
 }
 
+@property (atomic) int addonDataCategory;
+
 - (void)loadData;
+- (NSArray*) getAddonData;
 
 + (DataRetriever*)sharedInstance;
 
