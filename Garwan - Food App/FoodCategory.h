@@ -13,6 +13,7 @@
 @property (readonly) NSString *name;
 @property (readonly) NSArray *meals;
 
-+ (NSArray*)categoriesFromJsonData:(NSData*)data;
++ (NSArray*)mealsCategoriesFromJsonData:(NSData*)data;
++ (NSArray*)addonsCategoriesFromJsonData:(NSData*)data;
 
 @end

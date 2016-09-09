@@ -9,13 +9,15 @@
 #import "FoodExpandableTableViewController.h"
 #import "FoodExpandableTableViewCell.h"
 #import "FoodDetailTableViewCell.h"
-#import "DataRetriever.h"
 #import "FoodCategory.h"
 #import "Food.h"
+#import "DataRetriever.h"
 
 #define ROW_HEIGHT 44
 
 @implementation FoodExpandableTableViewController
+
+static BOOL master = YES;
 
 - (void)viewDidLoad
 {
@@ -27,9 +29,22 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableDataReceived:) name:DATA_RETRIEVED object:nil];
+    tablesData = [[NSArray alloc] init];
     
-    categories = [[NSMutableArray alloc] init];
+    if (master)
+    {
+        amIMaster = YES;
+        master = NO;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableDataReceived:) name:DATA_RETRIEVED object:nil];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if (!amIMaster)
+    {
+        //get data
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,9 +53,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tableDataReceived:(NSNotification *)notification
+- (void)tableDataReceived:(NSNotification*)notification
 {
-    categories = [notification.userInfo valueForKey:DATA_RETRIEVED];
+    tablesData = [notification.userInfo valueForKey:DATA_RETRIEVED];
     [self.tableView reloadData];
 }
 
@@ -49,14 +64,14 @@
 
 - (NSInteger)numberOfExpandableSectionsInTableView
 {
-    return categories.count;
+    return tablesData.count;
 }
 
 - (UITableViewCell*)cellForExpandable:(UITableView *)tableView RowAtIndexPath:(NSIndexPath *)indexPath
 {
     FoodExpandableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodExpandableViewCell" forIndexPath:indexPath];
     
-    FoodCategory *fc = categories[indexPath.row];
+    FoodCategory *fc = tablesData[indexPath.row];
     [cell.categoryLabel setText:fc.name];
     
     return cell;
@@ -64,7 +79,7 @@
 
 - (CGFloat)heightForExpandableRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FoodCategory *fc = categories[indexPath.row];
+    FoodCategory *fc = tablesData[indexPath.row];
     
     if(selectedIndex && indexPath.row == selectedIndex.row && !sameRow) return ROW_HEIGHT + ROW_HEIGHT * fc.meals.count;
     else return ROW_HEIGHT;
@@ -93,7 +108,7 @@
 {
     if (selectedIndex && !sameRow)
     {
-        FoodCategory *fc = categories[selectedIndex.row];
+        FoodCategory *fc = tablesData[selectedIndex.row];
         return fc.meals.count;
     }
     return 0;
@@ -103,14 +118,14 @@
 {
     FoodDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodDetailTableViewCell" forIndexPath:indexPath];
     
-    FoodCategory *fc = categories[selectedIndex.row];
+    FoodCategory *fc = tablesData[selectedIndex.row];
     Food *food = fc.meals[indexPath.row];
     
     [cell.mealLabel setText:food.name];
     [cell.sizeLabel setText:food.size];
     [cell.priceLabel setText:[NSString stringWithFormat:@"%@€", food.price]];
     
-    if (!food.hasAddons) cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (food.addons.count == 0) cell.selectionStyle = UITableViewCellSelectionStyleNone;
     else cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     
     return cell;
@@ -220,14 +235,13 @@
     if ([[segue identifier] isEqualToString:@"FoodCategoriesToFoodAddonsSegue"])
     {
         FoodDetailTableViewCell *cell = sender;
-//        if (cell.selectionStyle == UITableViewCellSelectionStyleNone) return;
         
-        UIViewController *favc = [segue destinationViewController];
-        favc.navigationItem.title = cell.mealLabel.text;
+        addonsTable = [segue destinationViewController];
+        addonsTable.navigationItem.title = cell.mealLabel.text;
     }
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Deallock
 
 -(void)dealloc

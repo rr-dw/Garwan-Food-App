@@ -13,6 +13,7 @@
 @interface DataRetriever : NSObject
 {
     NSArray *categoriesAndFood;
+    NSArray *addonsAndFood;
 }
 
 - (void)loadData;

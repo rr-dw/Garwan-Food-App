@@ -85,13 +85,13 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2Y-6R-Gvu">
-                                                                <rect key="frame" x="16" y="8" width="458" height="21"/>
+                                                                <rect key="frame" x="16" y="11" width="458" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKX-py-wzh">
-                                                                <rect key="frame" x="482" y="8" width="42" height="21"/>
+                                                                <rect key="frame" x="482" y="11" width="42" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="42" id="ByE-kw-qRH"/>
                                                                 </constraints>
@@ -100,7 +100,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dP2-Md-Sah">
-                                                                <rect key="frame" x="532" y="8" width="60" height="21"/>
+                                                                <rect key="frame" x="532" y="11" width="60" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="60" id="MTj-2N-xTo"/>
                                                                 </constraints>
@@ -111,7 +111,7 @@
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="dP2-Md-Sah" firstAttribute="leading" secondItem="PKX-py-wzh" secondAttribute="trailing" constant="8" id="DUw-xF-oNj"/>
-                                                            <constraint firstItem="G2Y-6R-Gvu" firstAttribute="top" secondItem="P4G-KD-1SR" secondAttribute="topMargin" id="QQw-2w-z4R"/>
+                                                            <constraint firstItem="G2Y-6R-Gvu" firstAttribute="top" secondItem="P4G-KD-1SR" secondAttribute="topMargin" constant="3" id="QQw-2w-z4R"/>
                                                             <constraint firstItem="dP2-Md-Sah" firstAttribute="trailing" secondItem="P4G-KD-1SR" secondAttribute="trailingMargin" id="RIQ-B3-ifM"/>
                                                             <constraint firstItem="PKX-py-wzh" firstAttribute="centerY" secondItem="G2Y-6R-Gvu" secondAttribute="centerY" id="how-x5-rUl"/>
                                                             <constraint firstItem="G2Y-6R-Gvu" firstAttribute="leading" secondItem="P4G-KD-1SR" secondAttribute="leadingMargin" constant="8" id="iwf-hj-fGx"/>
@@ -159,7 +159,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnH-uF-uQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2081" y="534"/>
+            <point key="canvasLocation" x="2080" y="489"/>
         </scene>
         <!--Food Addons View Controller-->
         <scene sceneID="5xF-x6-xNa">
@@ -196,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ona-Cq-tu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1371" y="1304"/>
+            <point key="canvasLocation" x="1371" y="1261"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C06-vM-dbh">

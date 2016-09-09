@@ -10,9 +10,11 @@
 
 @interface FoodExpandableTableViewController : UITableViewController
 {
+    BOOL amIMaster;
     BOOL sameRow;
-    NSMutableArray *categories;
+    NSArray *tablesData;
     NSIndexPath *selectedIndex;
+    FoodExpandableTableViewController *addonsTable;
 }
 
 @end
