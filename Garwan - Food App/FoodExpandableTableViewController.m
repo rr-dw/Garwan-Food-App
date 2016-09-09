@@ -70,6 +70,22 @@
     else return ROW_HEIGHT;
 }
 
+- (void)didSelectExpandable:(UITableView *)tableView RowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (selectedIndex && indexPath.row == selectedIndex.row && !sameRow) sameRow = YES;
+    else sameRow = NO;
+    
+    NSMutableArray *indexes = [[NSMutableArray alloc] initWithObjects:indexPath, selectedIndex ? selectedIndex : nil, nil];
+    selectedIndex = indexPath;
+    
+    [tableView beginUpdates];
+    [tableView reloadRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
+    [tableView endUpdates];
+    
+    FoodExpandableTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell.detailTableView reloadData];
+}
+
 #pragma mark -
 #pragma mark Detail Table View
 
@@ -94,12 +110,25 @@
     [cell.sizeLabel setText:food.size];
     [cell.priceLabel setText:[NSString stringWithFormat:@"%@€", food.price]];
     
+    if (!food.hasAddons) cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    else cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    
     return cell;
 }
 
 - (CGFloat)heightForDetailRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return ROW_HEIGHT;
+}
+
+- (void)didSelectDetail:(UITableView *)tableView RowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FoodDetailTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.selectionStyle == UITableViewCellSelectionStyleNone) return;
+    
+    [self performSegueWithIdentifier:@"FoodCategoriesToFoodAddonsSegue" sender:cell];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark -
@@ -128,7 +157,7 @@
     else return [self cellForDetail:tableView RowAtIndexPath:indexPath];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([tableView.restorationIdentifier isEqualToString:@"FoodExpandable"])
     {
@@ -137,28 +166,13 @@
     else return [self heightForDetailRowAtIndexPath:indexPath];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([tableView.restorationIdentifier isEqualToString:@"FoodExpandable"])
     {
-        if (selectedIndex && indexPath.row == selectedIndex.row && !sameRow) sameRow = YES;
-        else sameRow = NO;
-        
-        NSMutableArray *indexes = [[NSMutableArray alloc] initWithObjects:indexPath, selectedIndex ? selectedIndex : nil, nil];
-        selectedIndex = indexPath;
-        
-        [tableView beginUpdates];
-        [tableView reloadRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
-        [tableView endUpdates];
-    
-        FoodExpandableTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        [cell.detailTableView reloadData];
+        [self didSelectExpandable:tableView RowAtIndexPath:indexPath];
     }
-    else
-    {
-//        [tableView reloadData];
-    }
-//    [self performSegueWithIdentifier:@"TableToFoodAddonsSegue" sender:self];
+    else [self didSelectDetail:tableView RowAtIndexPath:indexPath];
 }
 
 /*
@@ -199,10 +213,19 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"FoodCategoriesToFoodAddonsSegue"])
+    {
+        FoodDetailTableViewCell *cell = sender;
+//        if (cell.selectionStyle == UITableViewCellSelectionStyleNone) return;
+        
+        UIViewController *favc = [segue destinationViewController];
+        favc.navigationItem.title = cell.mealLabel.text;
+    }
+}
 
 #pragma mark - 
 #pragma mark Deallock

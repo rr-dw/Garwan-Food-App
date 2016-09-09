@@ -21,9 +21,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgW-Vy-8v2">
                                 <rect key="frame" x="20" y="72" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="PW9-gf-iCx" kind="show" identifier="FoodCategoriesToFoodAddonsSegue" id="2kf-sg-Zh6"/>
-                                </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZHu-SD-CW4">
                                 <rect key="frame" x="0.0" y="110" width="600" height="490"/>
@@ -156,10 +153,13 @@
                             <outlet property="delegate" destination="6dA-1q-hBW" id="ALa-GY-pEa"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="PW9-gf-iCx" kind="show" identifier="FoodCategoriesToFoodAddonsSegue" id="o59-j2-rOP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnH-uF-uQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="1202"/>
+            <point key="canvasLocation" x="2081" y="534"/>
         </scene>
         <!--Food Addons View Controller-->
         <scene sceneID="5xF-x6-xNa">
@@ -196,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ona-Cq-tu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096" y="479"/>
+            <point key="canvasLocation" x="1371" y="1259"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C06-vM-dbh">
@@ -218,6 +218,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="msk-0r-Ne5"/>
+        <segue reference="OTP-5p-3R6"/>
     </inferredMetricsTieBreakers>
 </document>

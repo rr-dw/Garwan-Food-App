@@ -45,11 +45,6 @@
     {
         foodTable = [segue destinationViewController];
     }
-    else if ([[segue identifier] isEqualToString:@"FoodCategoriesToFoodAddonsSegue"])
-    {
-        FoodAddonsViewController *favc = [segue destinationViewController];
-        favc.navigationItem.title = @"Food Addons";
-    }
 }
 
 
